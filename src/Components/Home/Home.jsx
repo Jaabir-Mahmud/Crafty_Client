@@ -8,6 +8,94 @@ const Home = () => {
   const [cards, setCards] = useState([]);
   const [subcategories, setSubcategories] = useState([]);
 
+  // Beautiful arts and crafts images for featured gallery
+  const featuredArchitecturalImages = [
+    {
+      id: 1,
+      url: "https://i.postimg.cc/mrrJS1K0/02.jpg",
+      title: "Traditional Pottery Making",
+      category: "Pottery & Ceramics",
+      description: "Handcrafted pottery with traditional techniques and modern aesthetics"
+    },
+    {
+      id: 2,
+      url: "https://i.postimg.cc/LXXCzdgR/1777be3e34a198160a3a5de6aa4d74b3.jpg",
+      title: "Colorful Paper Crafts",
+      category: "Paper Arts",
+      description: "Vibrant paper craft projects with intricate folding and cutting techniques"
+    },
+    {
+      id: 3,
+      url: "https://i.postimg.cc/d0JSVZqh/550px-nowatermark-Make-Arts-and-Crafts-Step-1.jpg",
+      title: "Arts and Crafts Workshop",
+      category: "Mixed Media",
+      description: "Creative workspace setup for various arts and crafts projects"
+    },
+    {
+      id: 4,
+      url: "https://i.postimg.cc/FH5Bwn8g/5d9edb4ccf0008a69f1d832f136ebe21.jpg",
+      title: "Handmade Floral Arrangements",
+      category: "Floral Arts",
+      description: "Beautiful handcrafted floral designs and botanical arrangements"
+    },
+    {
+      id: 5,
+      url: "https://i.postimg.cc/mgY54yGx/7f5161f1cc30cdbfd783c627e5dd915e.jpg",
+      title: "Creative Art Supplies",
+      category: "Art Materials",
+      description: "Professional art supplies arranged for creative projects and inspiration"
+    },
+    {
+      id: 6,
+      url: "https://i.postimg.cc/zXKrLW17/diy-garden-suncatcher-wind-chime-a-summer-kids-craft-4-67f3ee6dd521d.avif",
+      title: "DIY Garden Suncatcher",
+      category: "Garden Crafts",
+      description: "Colorful DIY suncatcher wind chime perfect for summer garden decoration"
+    },
+    {
+      id: 7,
+      url: "https://i.postimg.cc/Vs3wLg25/images.jpg",
+      title: "Traditional Handicrafts",
+      category: "Traditional Arts",
+      description: "Classic handicraft techniques passed down through generations"
+    },
+    {
+      id: 8,
+      url: "https://i.postimg.cc/3w9f4rRn/images-1.jpg",
+      title: "Modern Craft Techniques",
+      category: "Contemporary Arts",
+      description: "Innovative approaches to traditional crafting methods"
+    },
+    {
+      id: 9,
+      url: "https://i.postimg.cc/nzPd2dqm/images-2.jpg",
+      title: "Artisan Workshop",
+      category: "Workshop Arts",
+      description: "Professional artisan workspace with tools and materials"
+    },
+    {
+      id: 10,
+      url: "https://i.postimg.cc/7hJKWgNW/images-3.jpg",
+      title: "Creative Design Process",
+      category: "Design Arts",
+      description: "Behind the scenes of the creative design and making process"
+    },
+    {
+      id: 11,
+      url: "https://i.postimg.cc/HjG6DVZs/images-4.jpg",
+      title: "Handmade Decorations",
+      category: "Home Decor",
+      description: "Beautiful handcrafted decorative items for home styling"
+    },
+    {
+      id: 12,
+      url: "https://i.postimg.cc/667wXgjD/images-5.jpg",
+      title: "Textile Arts Collection",
+      category: "Textile Arts",
+      description: "Diverse collection of textile arts and fabric crafts"
+    }
+  ];
+
   useEffect(() => {
     // Fetch normal cards for the homepage
     fetch("https://creative-corner-server.vercel.app/craft")
@@ -19,9 +107,7 @@ const Home = () => {
     fetch("https://creative-corner-server.vercel.app/craft")
       .then((response) => response.json())
       .then((data) => {
-        console.log("Raw subcategories data:", data); 
         const slicedData = data.slice(0, 6);
-        console.log("Sliced subcategories data:", slicedData); 
         setSubcategories(slicedData);
       })
       .catch((error) => console.error("Error fetching subcategories:", error));
@@ -33,10 +119,10 @@ const Home = () => {
       <section className="relative overflow-hidden">
         <div className="container mx-auto px-4 py-20">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-6 animate-pulse">
+            <h1 className="text-5xl md:text-7xl font-bold font-heading bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-6 tracking-tight leading-tight">
               Our Arts
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed font-normal tracking-wide max-w-3xl mx-auto">
               Textile arts encompass a diverse range of creative expressions that
               involve the manipulation of fibers and fabrics to create functional or
               decorative objects that inspire and captivate.
@@ -44,13 +130,13 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 to="/allArt"
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 tracking-wide"
               >
                 Explore Gallery
               </Link>
               <Link
                 to="/addCraftItem"
-                className="px-8 py-4 border-2 border-blue-600 text-blue-600 dark:text-blue-400 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300"
+                className="px-8 py-4 border-2 border-blue-600 text-blue-600 dark:text-blue-400 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 tracking-wide"
               >
                 Create Art
               </Link>
@@ -68,8 +154,8 @@ const Home = () => {
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">Featured Gallery</h2>
-            <p className="text-gray-600 dark:text-gray-400 text-lg">Discover our most captivating textile artworks</p>
+            <h2 className="text-4xl font-bold font-heading text-gray-800 dark:text-white mb-4 tracking-tight">Featured Gallery</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg font-normal leading-relaxed">Discover our most captivating arts and crafts creations</p>
           </div>
           
           <div className="max-w-6xl mx-auto">
@@ -81,60 +167,88 @@ const Home = () => {
               slidesPerView={1}
               className="rounded-2xl overflow-hidden shadow-2xl"
             >
-              <SwiperSlide>
-                <div className="relative h-96 md:h-[500px]">
-                  <img
-                    src="img/image1.jpg"
-                    alt="Textile Art 1"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-8 left-8 right-8 text-white">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-2">Creative Expression</h3>
-                    <p className="text-lg opacity-90">
-                      Textiles serve as a canvas for creativity, allowing artists to
-                      explore themes of identity, memory, storytelling, and social commentary.
-                    </p>
+              {featuredArchitecturalImages.map((image) => (
+                <SwiperSlide key={image.id}>
+                  <div className="relative h-96 md:h-[500px]">
+                    <img
+                      src={image.url}
+                      alt={image.title}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Enhanced dark overlay for better text visibility */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+                    <div className="absolute inset-0 bg-black/20"></div>
+                    
+                    <div className="absolute bottom-8 left-8 right-8 text-white">
+                      <div className="mb-3">
+                        <span className="inline-block px-4 py-2 bg-blue-600/90 backdrop-blur-sm text-white text-sm font-medium rounded-full shadow-lg border border-white/20">
+                          {image.category}
+                        </span>
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-bold font-heading mb-2 text-white drop-shadow-2xl text-shadow-lg">
+                        {image.title}
+                      </h3>
+                      <p className="text-lg font-normal leading-relaxed text-white/95 drop-shadow-lg text-shadow-md max-w-2xl">
+                        {image.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </SwiperSlide>
-              
-              <SwiperSlide>
-                <div className="relative h-96 md:h-[500px]">
-                  <img
-                    src="img/image2.jpg"
-                    alt="Textile Art 2"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-8 left-8 right-8 text-white">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-2">Artistic Innovation</h3>
-                    <p className="text-lg opacity-90">
-                      Modern textile arts blend traditional techniques with contemporary design
-                      to create stunning works of functional beauty.
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              
-              <SwiperSlide>
-                <div className="relative h-96 md:h-[500px]">
-                  <img
-                    src="img/image3.jpg"
-                    alt="Textile Art 3"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-8 left-8 right-8 text-white">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-2">Cultural Heritage</h3>
-                    <p className="text-lg opacity-90">
-                      Each piece tells a story, preserving cultural traditions while
-                      embracing modern artistic expression and innovation.
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
+                </SwiperSlide>
+              ))}
             </Swiper>
+          </div>
+        </div>
+      </section>
+
+      {/* Arts & Crafts Showcase Grid */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold font-heading text-gray-800 dark:text-white mb-4 tracking-tight">
+              Arts & Crafts Showcase
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg font-normal leading-relaxed">
+              Explore traditional and modern crafting techniques from talented artisans
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {featuredArchitecturalImages.slice(0, 6).map((image) => (
+              <div
+                key={image.id}
+                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-500 bg-white dark:bg-gray-800"
+              >
+                <div className="aspect-w-16 aspect-h-12">
+                  <img
+                    src={image.url}
+                    alt={image.title}
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                
+                <div className="p-6">
+                  <div className="mb-2">
+                    <span className="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-xs font-medium rounded-full">
+                      {image.category}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-semibold font-heading text-gray-800 dark:text-white mb-2">{image.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm font-normal leading-relaxed">{image.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link
+              to="/allArt"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300"
+            >
+              View All Arts & Crafts
+              <svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
@@ -143,8 +257,8 @@ const Home = () => {
       <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">Featured Craft Items</h2>
-            <p className="text-gray-600 dark:text-gray-400 text-lg">Handpicked selections from our artisan community</p>
+            <h2 className="text-4xl font-bold font-heading text-gray-800 dark:text-white mb-4 tracking-tight">Featured Craft Items</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg font-normal leading-relaxed">Handpicked selections from our artisan community</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -210,8 +324,8 @@ const Home = () => {
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">Art & Craft Categories</h2>
-            <p className="text-gray-600 dark:text-gray-400 text-lg">Explore different categories of artistic expression</p>
+            <h2 className="text-4xl font-bold font-heading text-gray-800 dark:text-white mb-4 tracking-tight">Art & Craft Categories</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg font-normal leading-relaxed">Explore different categories of artistic expression</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -234,6 +348,122 @@ const Home = () => {
                 <div className="absolute bottom-4 left-4 right-4">
                   <button className="w-full bg-white/20 backdrop-blur-sm text-white border border-white/30 py-2 rounded-lg font-semibold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                     Explore Category
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Arts & Crafts Categories */}
+      <section className="py-16 bg-gradient-to-br from-indigo-50 to-cyan-50 dark:from-indigo-900/20 dark:to-cyan-900/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold font-heading text-gray-800 dark:text-white mb-4 tracking-tight">
+              Craft Categories
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg font-normal leading-relaxed">
+              Discover various crafting specializations and traditional art forms
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {[
+              { 
+                name: "Pottery & Ceramics", 
+                count: "25+ Projects", 
+                color: "from-amber-500 to-orange-500",
+                thumbnail: "https://i.postimg.cc/mrrJS1K0/02.jpg",
+                description: "Traditional and modern pottery techniques"
+              },
+              { 
+                name: "Paper Arts", 
+                count: "30+ Projects", 
+                color: "from-blue-500 to-cyan-500",
+                thumbnail: "https://i.postimg.cc/LXXCzdgR/1777be3e34a198160a3a5de6aa4d74b3.jpg",
+                description: "Creative paper crafts and origami"
+              },
+              { 
+                name: "Textile Arts", 
+                count: "35+ Projects", 
+                color: "from-purple-500 to-pink-500",
+                thumbnail: "https://i.postimg.cc/sgJCmrxZ/indian-cotton-hand-block-fabric-floral-dressmaking-throw-fabric-handmade-craft-sewing-yard-HBCF-325.webp",
+                description: "Fabric arts and textile crafting"
+              },
+              { 
+                name: "Wood Crafts", 
+                count: "20+ Projects", 
+                color: "from-green-500 to-teal-500",
+                thumbnail: "https://i.postimg.cc/L8DGf3Qt/top-view-woman-making-wood-decorations.jpg",
+                description: "Handmade wooden decorations and crafts"
+              },
+              { 
+                name: "Embroidery", 
+                count: "28+ Projects", 
+                color: "from-rose-500 to-pink-500",
+                thumbnail: "https://i.postimg.cc/YSqKysLD/Learn-simple-hand-embroidery-techniques-for-linen-napkins-This-guide-covers-basic-stitches-and-tool.webp",
+                description: "Traditional and modern embroidery work"
+              },
+              { 
+                name: "Block Printing", 
+                count: "15+ Projects", 
+                color: "from-indigo-500 to-purple-500",
+                thumbnail: "https://i.postimg.cc/L8SMjX9p/khushi-handicraft-hand-block-print-pure-cotton-fabric-500x500.webp",
+                description: "Hand block printing on various materials"
+              },
+              { 
+                name: "Children's Arts", 
+                count: "22+ Projects", 
+                color: "from-yellow-500 to-orange-500",
+                thumbnail: "https://i.postimg.cc/sgstvNmf/Whiz-Kidz-Arts-and-Crafts-1.jpg",
+                description: "Fun and educational kids craft activities"
+              },
+              { 
+                name: "Holiday Crafts", 
+                count: "18+ Projects", 
+                color: "from-red-500 to-pink-500",
+                thumbnail: "https://i.postimg.cc/dtPMK1Ty/valentines-day-fun-pack-activities-by-proud-to-be-primary-41.webp",
+                description: "Seasonal and holiday-themed crafts"
+              }
+            ].map((category, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border border-gray-100 dark:border-gray-700"
+              >
+                {/* Thumbnail Image */}
+                <div className="h-48 relative overflow-hidden">
+                  <img
+                    src={category.thumbnail}
+                    alt={category.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4">
+                    <span className={`inline-block px-3 py-1 bg-gradient-to-r ${category.color} text-white text-xs font-semibold rounded-full shadow-lg backdrop-blur-sm`}>
+                      {category.count}
+                    </span>
+                  </div>
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* Category Info Overlay */}
+                  <div className="absolute bottom-4 left-4 right-4 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-lg font-bold font-heading mb-1 drop-shadow-lg">{category.name}</h3>
+                    <p className="text-sm opacity-90 leading-relaxed drop-shadow-md">{category.description}</p>
+                  </div>
+                </div>
+                
+                <div className="p-4">
+                  <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 text-sm shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
+                    <span>Explore {category.name}</span>
+                    <svg className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
                   </button>
                 </div>
               </div>

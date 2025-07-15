@@ -11,6 +11,13 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
+  // Privacy-safe user data handling
+  const safeUserData = user ? {
+    displayName: user.displayName ? user.displayName.split(' ')[0] : "User",
+    photoURL: user.photoURL || "https://i.ibb.co/QnGz7Yz/5.jpg",
+    hasPhoto: !!user.photoURL
+  } : null;
+
   useEffect(() => {
     const applyTheme = () => {
       const htmlElement = document.documentElement;
@@ -62,7 +69,7 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <NavLink
               to="/"
-              className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+              className="text-3xl font-extrabold font-heading text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 tracking-tight"
             >
               CRAFTY
             </NavLink>
@@ -117,12 +124,12 @@ const Navbar = () => {
                   className="flex items-center space-x-3 p-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all duration-200"
                 >
                   <img
-                    src={user.photoURL || "https://i.ibb.co/QnGz7Yz/5.jpg"}
-                    alt={user.displayName || "User"}
+                    src={safeUserData?.photoURL}
+                    alt="User Avatar"
                     className="w-8 h-8 rounded-full object-cover border-2 border-white dark:border-gray-600"
                   />
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                    {user.displayName || "User"}
+                    {safeUserData?.displayName}
                   </span>
                   <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -134,10 +141,10 @@ const Navbar = () => {
                   <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50">
                     <div className="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
                       <p className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                        {user.displayName || "User"}
+                        Welcome back!
                       </p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">
-                        {user.email}
+                        Manage your account
                       </p>
                     </div>
                     <button
@@ -232,12 +239,12 @@ const Navbar = () => {
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3 px-3">
                       <img
-                        src={user.photoURL || "https://i.ibb.co/QnGz7Yz/5.jpg"}
-                        alt={user.displayName || "User"}
+                        src={safeUserData?.photoURL}
+                        alt="User Avatar"
                         className="w-8 h-8 rounded-full object-cover"
                       />
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                        {user.displayName || "User"}
+                        {safeUserData?.displayName}
                       </span>
                     </div>
                     <button

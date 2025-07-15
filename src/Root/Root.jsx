@@ -4,7 +4,7 @@ import Footer from "../Components/Footer/Footer";
 
 const Root = () => {
     return (
-        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300 font-sans antialiased">
            <Navbar></Navbar>
            <main className="pt-16">
                <Outlet></Outlet>
