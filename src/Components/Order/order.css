@@ -1,0 +1,210 @@
+body {
+    background: #8acdeb;
+  }
+  
+  .centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #8acdeb;
+}
+
+#container {
+    position: relative;
+    width: 50%; 
+    max-width: 300px; 
+    height: 50%; 
+    max-height: 300px; 
+}
+
+  
+  .steam {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-top: -50px;
+    margin-left: 50px;
+    z-index: 0;
+    opacity: 0;
+  }
+  
+  #steam1 {
+    -webkit-animation: steam1 4s ease-out infinite;
+    animation: steam1 4s ease-out infinite;
+  }
+  
+  #steam3 {
+    -webkit-animation: steam1 4s ease-out 1s infinite;
+    animation: steam1 4s ease-out 1s infinite;
+  }
+  
+  @-webkit-keyframes steam1 {
+    0% {transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2;}
+    100% {transform: translateY(-100px) translateX(-20px) scale(1); opacity: 0;}
+  }
+  
+  @keyframes steam1 {
+    0% {transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2;}
+    100% {transform: translateY(-100px) translateX(-20px) scale(1); opacity: 0;}
+  }
+  
+  #steam2 {
+    -webkit-animation: steam2 4s ease-out 0.5s infinite;
+    animation: steam2 4s ease-out 0.5s infinite;
+  }
+  
+  #steam4 {
+    -webkit-animation: steam2 4s ease-out 1.5s infinite;
+    animation: steam2 4s ease-out 1.5s infinite;
+  }
+  
+  @-webkit-keyframes steam2 {
+    0% {transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2;}
+    100% {transform: translateY(-100px) translateX(20px) scale(1); opacity: 0;}
+  }
+  
+  @keyframes steam2 {
+    0% {transform: translateY(0) translateX(0) scale(0.25); opacity: 0.2;}
+    100% {transform: translateY(-100px) translateX(20px) scale(1); opacity: 0;}
+  }
+  
+  #cup {
+    z-index: 1;
+  }
+  
+  #cup-body {
+    position: absolute;
+    height: 150px;
+    width: 225px;
+    border-radius: 0 0 112px 112px;
+    background-color: #fff;
+    margin: auto;
+    display: inline-block;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  #cup-shade {
+    position: relative;
+    height: 225px;
+    width: 150px;
+    background-color: #F3F3F3;
+    display: inline-block;
+    margin-left: 42%;
+    margin-top: -3px;
+    transform: rotate(50deg);
+    z-index: 1;
+  }
+  
+  #cup-handle {
+    position: relative;
+    height: 60px;
+    width: 65px;
+    border-radius: 0 130px 130px 0;
+    border: 7px solid #F3F3F3;
+    margin-bottom: 80px;
+    margin-left: 210px;
+    display: inline-block;
+    z-index: 0;
+  }
+  
+  #saucer {
+    position: absolute;
+    height: 25px;
+    width: 225px;
+    border-radius: 0 0 100px 100px;
+    background-color: #F9F9F9;
+    margin-top: -27px;
+    margin-left: 5px;
+    z-index: 2;
+  }
+  
+  #shadow {
+    height: 5px;
+    width: 225px;
+    border-radius: 50%;
+    margin-top: -3px;
+    margin-left: 6px;
+    background-color: #7bb8d4;
+  }
+  
+  @media (max-width: 768px) {
+    .steam {
+      height: 75px;
+      width: 75px;
+      margin-top: -37.5px;
+      margin-left: 37.5px;
+    }
+  
+    #cup-body {
+      height: 112px;
+      width: 168px;
+      border-radius: 0 0 96px 96px;
+    }
+  
+    #cup-shade {
+      height: 168px;
+      width: 112px;
+    }
+  
+    #cup-handle {
+      height: 45px;
+      width: 48px;
+      margin-bottom: 60px;
+      margin-left: 180px;
+    }
+  
+    #saucer {
+      height: 20px;
+      width: 168px;
+      margin-top: -18px;
+    }
+  
+    #shadow {
+      height: 3px;
+      width: 168px;
+      margin-top: -2px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .steam {
+      height: 50px;
+      width: 50px;
+      margin-top: -25px;
+      margin-left: 25px;
+    }
+  
+    #cup-body {
+      height: 75px;
+      width: 112px;
+      border-radius: 0 0 72px 72px;
+    }
+  
+    #cup-shade {
+      height: 112px;
+      width: 75px;
+    }
+  
+    #cup-handle {
+      height: 30px;
+      width: 32px;
+      margin-bottom: 45px;
+      margin-left: 135px;
+    }
+  
+    #saucer {
+      height: 15px;
+      width: 112px;
+      margin-top: -13px;
+    }
+  
+    #shadow {
+      height: 2px;
+      width: 112px;
+      margin-top: -1px;
+    }
+  }
